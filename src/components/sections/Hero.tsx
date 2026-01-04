@@ -69,7 +69,16 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button size="lg" className="h-14 px-8 text-lg bg-cyan-600 hover:bg-cyan-500 text-white rounded-full shadow-[0_0_20px_rgba(8,145,178,0.5)] transition-all hover:scale-105">
+          <Button 
+            size="lg" 
+            onClick={() => {
+              const element = document.getElementById("contact-form");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+            className="h-14 px-8 text-lg bg-cyan-600 hover:bg-cyan-500 text-white rounded-full shadow-[0_0_20px_rgba(8,145,178,0.5)] transition-all hover:scale-105"
+          >
             Book a Free Growth Audit
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>

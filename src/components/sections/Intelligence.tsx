@@ -3,7 +3,7 @@ import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 
 export function IntelligenceEngine() {
   return (
-    <section id="intelligence" className="py-24 bg-[#08080a] border-t border-white/5">
+    <section id="intelligence" className="py-24 bg-[#08080a] border-t border-white/5 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
         
         <div className="lg:w-1/2">

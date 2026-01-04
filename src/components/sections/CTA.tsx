@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { Mail, Globe, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Mail, Globe, MapPin, Linkedin, Twitter, Instagram, Send } from "lucide-react";
 
 export function CTA() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    restaurant: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+    // Reset form
+    setFormData({ name: "", email: "", restaurant: "", message: "" });
+    alert("Thank you for your message! We'll get back to you soon.");
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <footer className="bg-[#020202] pt-24 pb-12 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -20,6 +45,87 @@ export function CTA() {
                         Start Free Trial
                     </Button>
                 </div>
+            </div>
+        </div>
+
+        {/* Contact Form */}
+        <div id="contact-form" className="mb-20 max-w-2xl mx-auto scroll-mt-20">
+            <div className="rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 p-8 md:p-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Contact Us</h3>
+                <p className="text-gray-400 text-center mb-8">
+                    Get in touch with us to learn more about how we can help grow your restaurant.
+                </p>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                                Name *
+                            </label>
+                            <Input
+                                id="name"
+                                name="name"
+                                type="text"
+                                required
+                                value={formData.name}
+                                onChange={handleChange}
+                                className="w-full bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
+                                placeholder="Your name"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                Email *
+                            </label>
+                            <Input
+                                id="email"
+                                name="email"
+                                type="email"
+                                required
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="w-full bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="restaurant" className="block text-sm font-medium text-gray-300 mb-2">
+                            Restaurant Name
+                        </label>
+                        <Input
+                            id="restaurant"
+                            name="restaurant"
+                            type="text"
+                            value={formData.restaurant}
+                            onChange={handleChange}
+                            className="w-full bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
+                            placeholder="Your restaurant name"
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                            Message *
+                        </label>
+                        <Textarea
+                            id="message"
+                            name="message"
+                            required
+                            value={formData.message}
+                            onChange={handleChange}
+                            rows={5}
+                            className="w-full bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500 resize-none"
+                            placeholder="Tell us about your restaurant and how we can help..."
+                        />
+                    </div>
+                    <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full h-14 text-lg bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-0 rounded-full"
+                    >
+                        Send Message
+                        <Send className="ml-2 w-5 h-5" />
+                    </Button>
+                </form>
             </div>
         </div>
 
@@ -54,7 +160,7 @@ export function CTA() {
                 <ul className="space-y-4">
                     <li className="flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors">
                         <Mail size={18} />
-                        <a href="mailto:parth@idigitalmind.au">parth@idigitalmind.au</a>
+                        <a href="mailto:partha@idigitalmind.com.au">partha@idigitalmind.com.au</a>
                     </li>
                     <li className="flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors">
                         <Globe size={18} />
@@ -70,7 +176,19 @@ export function CTA() {
             <div>
                 <h4 className="text-white font-bold mb-6">Links</h4>
                 <ul className="space-y-4">
-                    <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Book a Demo</a></li>
+                    <li>
+                        <button 
+                            onClick={() => {
+                                const element = document.getElementById("contact-form");
+                                if (element) {
+                                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }
+                            }}
+                            className="text-gray-400 hover:text-white transition-colors text-left"
+                        >
+                            Book a Demo
+                        </button>
+                    </li>
                     <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
                     <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
                 </ul>

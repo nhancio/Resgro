@@ -20,7 +20,7 @@ const FeatureCard = ({ title, description, icon: Icon, delay, className = "" }) 
 
 export function Solution() {
   return (
-    <section id="solution" className="py-24 bg-[#050505] relative">
+    <section id="solution" className="py-24 bg-[#050505] relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
             <motion.span 
