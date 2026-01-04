@@ -132,9 +132,11 @@ export function CTA() {
         <div className="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
             <div className="col-span-2">
                 <div className="flex items-center gap-2 mb-6">
-                    <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
-                        <span className="font-bold text-black text-lg">R</span>
-                    </div>
+                    <img 
+                        src="/logo.png" 
+                        alt="RESGRO Logo" 
+                        className="h-8 w-auto"
+                    />
                     <span className="text-2xl font-bold tracking-tight text-white">
                         RES<span className="text-cyan-500">GRO</span>
                     </span>

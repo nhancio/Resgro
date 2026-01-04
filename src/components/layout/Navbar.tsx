@@ -40,9 +40,11 @@ export function Navbar() {
           onClick={scrollToTop}
           className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
         >
-          <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
-            <span className="font-bold text-black text-lg">R</span>
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="RESGRO Logo" 
+            className="h-8 w-auto"
+          />
           <span className="text-2xl font-bold tracking-tight text-white">
             RES<span className="text-cyan-500">GRO</span>
           </span>
