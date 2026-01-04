@@ -70,49 +70,6 @@ export function MarketPain() {
             />
         </div>
 
-        {/* Revenue Flatline Graphic */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 text-xs font-mono text-gray-500">REVENUE_ANALYSIS_V2.0</div>
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">The "Promotion Trap"</h3>
-                    <p className="text-gray-400 mb-6">
-                        Most restaurants rely on heavy discounting to maintain order volume. This destroys margins and creates a dependency on platforms like UberEats and DoorDash without building brand loyalty.
-                    </p>
-                    <div className="flex gap-2">
-                        <div className="px-3 py-1 rounded bg-red-500/10 text-red-400 text-xs font-medium border border-red-500/20">High CAC</div>
-                        <div className="px-3 py-1 rounded bg-red-500/10 text-red-400 text-xs font-medium border border-red-500/20">Low Retention</div>
-                        <div className="px-3 py-1 rounded bg-red-500/10 text-red-400 text-xs font-medium border border-red-500/20">Margin Erosion</div>
-                    </div>
-                </div>
-                <div className="flex-1 w-full h-48 bg-black/50 rounded-xl relative border border-white/5 flex items-end px-4 pb-4">
-                    {/* Fake Chart */}
-                    <div className="w-full h-full flex items-end gap-1">
-                        {[40, 42, 45, 41, 38, 35, 32, 30, 28, 25, 22, 20].map((h, i) => (
-                            <motion.div 
-                                key={i}
-                                initial={{ height: 0 }}
-                                whileInView={{ height: `${h}%` }}
-                                transition={{ duration: 1, delay: i * 0.05 }}
-                                className={`flex-1 rounded-t-sm ${i > 5 ? 'bg-red-500/50' : 'bg-gray-600/50'}`}
-                            />
-                        ))}
-                    </div>
-                    {/* Line overlay */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                         <motion.path 
-                            initial={{ pathLength: 0 }}
-                            whileInView={{ pathLength: 1 }}
-                            transition={{ duration: 2 }}
-                            d="M0 100 Q 50 80, 100 90 T 200 120 T 300 150 T 400 180"
-                            fill="none" 
-                            stroke="rgba(239, 68, 68, 0.5)" 
-                            strokeWidth="2" 
-                        />
-                    </svg>
-                </div>
-            </div>
-        </div>
       </div>
     </section>
   );

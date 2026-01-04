@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -72,10 +72,6 @@ export function Hero() {
           <Button size="lg" className="h-14 px-8 text-lg bg-cyan-600 hover:bg-cyan-500 text-white rounded-full shadow-[0_0_20px_rgba(8,145,178,0.5)] transition-all hover:scale-105">
             Book a Free Growth Audit
             <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-          <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 rounded-full backdrop-blur-sm">
-            <PlayCircle className="mr-2 w-5 h-5" />
-            See How It Works
           </Button>
         </motion.div>
         

@@ -35,7 +35,7 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {["Solution", "Intelligence", "Why Us", "Process"].map((item) => (
+          {["Solution", "Intelligence", "Process"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -44,14 +44,8 @@ export function Navbar() {
               {item}
             </a>
           ))}
-          <Button
-            variant="outline"
-            className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300"
-          >
-            Login
-          </Button>
           <Button className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-0">
-            Book Audit
+            Contact Us
           </Button>
         </div>
 
@@ -74,7 +68,7 @@ export function Navbar() {
             className="md:hidden bg-[#050505] border-b border-white/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
-              {["Solution", "Intelligence", "Why Us", "Process"].map((item) => (
+              {["Solution", "Intelligence", "Process"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -85,14 +79,8 @@ export function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <Button
-                  variant="outline"
-                  className="w-full border-cyan-500/50 text-cyan-400"
-                >
-                  Login
-                </Button>
                 <Button className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-0">
-                  Book Audit
+                  Contact Us
                 </Button>
               </div>
             </div>

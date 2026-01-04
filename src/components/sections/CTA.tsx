@@ -19,9 +19,6 @@ export function CTA() {
                     <Button size="lg" className="h-14 px-10 text-lg bg-white text-black hover:bg-gray-200 rounded-full font-bold">
                         Start Free Trial
                     </Button>
-                    <Button variant="outline" size="lg" className="h-14 px-10 text-lg border-white/20 text-white hover:bg-white/10 rounded-full backdrop-blur-sm">
-                        Contact Sales
-                    </Button>
                 </div>
             </div>
         </div>
@@ -73,7 +70,6 @@ export function CTA() {
             <div>
                 <h4 className="text-white font-bold mb-6">Links</h4>
                 <ul className="space-y-4">
-                    <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Platform Login</a></li>
                     <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Book a Demo</a></li>
                     <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
                     <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
