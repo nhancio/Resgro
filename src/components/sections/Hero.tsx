@@ -17,10 +17,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-black mb-8 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-[#FF6B35] mb-8 backdrop-blur-sm"
         >
           <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
-          <span className="text-sm font-medium text-black">New: AI-Powered Competitor Analysis</span>
+          <span className="text-sm font-medium" style={{ color: '#FF6B35' }}>New: AI-Powered Competitor Analysis</span>
         </motion.div>
 
         <motion.h1
@@ -30,7 +30,7 @@ export function Hero() {
           className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-6 leading-tight"
         >
           Data Science Powered Growth <br />
-          <span className="text-black">
+          <span style={{ color: '#FF6B35' }}>
             for Modern Restaurants
           </span>
         </motion.h1>
@@ -72,8 +72,8 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.8 }}
             className="mt-20 relative mx-auto max-w-5xl"
         >
-             <div className="relative rounded-t-xl overflow-hidden border border-black shadow-2xl bg-white backdrop-blur-xl">
-                <div className="h-8 bg-white border-b border-black flex items-center px-4 gap-2">
+             <div className="relative rounded-t-xl overflow-hidden border-2 border-[#FF6B35] shadow-2xl bg-white backdrop-blur-xl">
+                <div className="h-8 bg-white border-b-2 border-[#FF6B35] flex items-center px-4 gap-2">
                     <div className="w-3 h-3 rounded-full bg-red-500/50" />
                     <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                     <div className="w-3 h-3 rounded-full bg-green-500/50" />

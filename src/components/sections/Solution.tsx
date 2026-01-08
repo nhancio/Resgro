@@ -8,7 +8,7 @@ const FeatureCard = ({ title, description, icon: Icon, delay, className = "" }) 
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay }}
         viewport={{ once: true }}
-        className={`p-6 rounded-2xl bg-white border border-black transition-all group ${className}`}
+        className={`p-6 rounded-2xl bg-white border-2 border-[#FF6B35] transition-all group hover:bg-[#FF6B35]/5 ${className}`}
     >
         <div className="w-12 h-12 rounded-lg bg-[#FF6B35] flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300">
             <Icon size={24} />
@@ -26,7 +26,8 @@ export function Solution() {
             <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-black font-medium tracking-wider text-sm uppercase mb-2 block"
+                className="font-medium tracking-wider text-sm uppercase mb-2 block"
+                style={{ color: '#FF6B35' }}
             >
                 The RESGRO Ecosystem
             </motion.span>
@@ -75,46 +76,46 @@ export function Solution() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-20 rounded-xl overflow-hidden border border-black shadow-2xl bg-white"
+            className="mt-20 rounded-xl overflow-hidden border-2 border-[#FF6B35] shadow-2xl bg-white"
         >
             <div className="grid md:grid-cols-12 gap-0">
                 {/* Sidebar Mock */}
-                <div className="hidden md:block col-span-2 border-r border-black bg-white p-4 space-y-4">
-                    <div className="h-8 w-24 bg-white border border-black rounded mb-8" />
+                <div className="hidden md:block col-span-2 border-r-2 border-[#FF6B35] bg-white p-4 space-y-4">
+                    <div className="h-8 w-24 bg-white border-2 border-[#FF6B35] rounded mb-8" />
                     <div className="space-y-2">
-                        <div className="h-8 w-full bg-[#FF6B35] border-l-2 border-black rounded-r" />
-                        <div className="h-8 w-full bg-white border border-black rounded" />
-                        <div className="h-8 w-full bg-white border border-black rounded" />
-                        <div className="h-8 w-full bg-white border border-black rounded" />
+                        <div className="h-8 w-full bg-[#FF6B35] border-l-4 border-black rounded-r" />
+                        <div className="h-8 w-full bg-white border-2 border-[#FF6B35] rounded" />
+                        <div className="h-8 w-full bg-white border-2 border-[#FF6B35] rounded" />
+                        <div className="h-8 w-full bg-white border-2 border-[#FF6B35] rounded" />
                     </div>
                 </div>
                 {/* Main Content Mock */}
                 <div className="col-span-12 md:col-span-10 p-6 md:p-8 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover bg-center relative">
                     <div className="absolute inset-0 bg-white/90" />
                     <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="p-4 bg-white border border-black rounded-lg backdrop-blur-sm">
+                        <div className="p-4 bg-white border-2 border-[#FF6B35] rounded-lg backdrop-blur-sm">
                             <div className="text-black text-xs mb-1">Total Revenue</div>
                             <div className="text-2xl font-bold text-black">$42,593</div>
-                            <div className="text-black text-xs mt-2 flex items-center">▲ 12.5% vs last week</div>
+                            <div className="text-xs mt-2 flex items-center" style={{ color: '#FF6B35' }}>▲ 12.5% vs last week</div>
                         </div>
-                        <div className="p-4 bg-white border border-black rounded-lg backdrop-blur-sm">
+                        <div className="p-4 bg-white border-2 border-[#FF6B35] rounded-lg backdrop-blur-sm">
                             <div className="text-black text-xs mb-1">Active Campaigns</div>
                             <div className="text-2xl font-bold text-black">4</div>
-                            <div className="text-black text-xs mt-2 flex items-center">● 2 Ending Soon</div>
+                            <div className="text-xs mt-2 flex items-center" style={{ color: '#FF6B35' }}>● 2 Ending Soon</div>
                         </div>
-                        <div className="p-4 bg-white border border-black rounded-lg backdrop-blur-sm">
+                        <div className="p-4 bg-white border-2 border-[#FF6B35] rounded-lg backdrop-blur-sm">
                             <div className="text-black text-xs mb-1">Avg Order Value</div>
                             <div className="text-2xl font-bold text-black">$48.20</div>
-                            <div className="text-black text-xs mt-2 flex items-center">▲ 2.1%</div>
+                            <div className="text-xs mt-2 flex items-center" style={{ color: '#FF6B35' }}>▲ 2.1%</div>
                         </div>
-                        <div className="col-span-1 md:col-span-2 h-64 bg-white border border-black rounded-lg backdrop-blur-sm flex items-center justify-center relative overflow-hidden">
+                        <div className="col-span-1 md:col-span-2 h-64 bg-white border-2 border-[#FF6B35] rounded-lg backdrop-blur-sm flex items-center justify-center relative overflow-hidden">
                              {/* Mock Graph Lines */}
                              <svg className="w-full h-full p-4" viewBox="0 0 400 200">
-                                <path d="M0 150 C 50 150, 100 100, 150 120 S 250 50, 400 80" fill="none" stroke="#f97316" strokeWidth="3" />
-                                <path d="M0 180 C 50 170, 100 140, 150 160 S 250 120, 400 140" fill="none" stroke="#8b5cf6" strokeWidth="3" opacity="0.5" />
+                                <path d="M0 150 C 50 150, 100 100, 150 120 S 250 50, 400 80" fill="none" stroke="#FF6B35" strokeWidth="3" />
+                                <path d="M0 180 C 50 170, 100 140, 150 160 S 250 120, 400 140" fill="none" stroke="#FF6B35" strokeWidth="3" opacity="0.5" />
                              </svg>
                         </div>
-                        <div className="h-64 bg-white border border-black rounded-lg backdrop-blur-sm p-4">
+                        <div className="h-64 bg-white border-2 border-[#FF6B35] rounded-lg backdrop-blur-sm p-4">
                             <div className="text-sm text-black font-medium mb-4">Top Items</div>
                             <div className="space-y-3">
                                 {[1,2,3,4].map(i => (

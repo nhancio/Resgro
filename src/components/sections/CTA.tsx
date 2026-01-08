@@ -75,14 +75,14 @@ export function CTA() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Main CTA */}
-        <div className="relative rounded-3xl overflow-hidden bg-[#FF6B35] border border-black p-12 md:p-20 text-center mb-20">
+        <div className="relative rounded-3xl overflow-hidden bg-[#FF6B35] border-2 border-black p-12 md:p-20 text-center mb-20">
             <div className="relative z-10">
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Ready to Grow Your Restaurant?</h2>
                 <p className="text-white/90 text-xl max-w-2xl mx-auto mb-10">
                     Join hundreds of Australian restaurants using data to outperform the market.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Button size="lg" className="h-14 px-10 text-lg bg-[#FF6B35] hover:bg-[#FF8C42] text-white rounded-full font-bold">
+                    <Button size="lg" className="h-14 px-10 text-lg bg-white hover:bg-black text-black hover:text-white rounded-full font-bold border-2 border-white">
                         Start Free Trial
                     </Button>
                 </div>
@@ -91,8 +91,8 @@ export function CTA() {
 
         {/* Contact Form */}
         <div id="contact-form" className="mb-20 max-w-2xl mx-auto scroll-mt-20">
-            <div className="rounded-3xl bg-white border border-black p-8 md:p-12">
-                <h3 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center">Contact Us</h3>
+            <div className="rounded-3xl bg-white border-2 border-[#FF6B35] p-8 md:p-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-black mb-4 text-center">Contact <span style={{ color: '#FF6B35' }}>Us</span></h3>
                 <p className="text-black text-center mb-8">
                     Get in touch with us to learn more about how we can help grow your restaurant.
                 </p>
@@ -109,7 +109,7 @@ export function CTA() {
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full bg-white border-black text-black placeholder:text-gray-400 focus:border-[#FF6B35]"
+                                className="w-full bg-white border-2 border-[#FF6B35] text-black placeholder:text-gray-400 focus:border-black"
                                 placeholder="Your name"
                             />
                         </div>
@@ -124,7 +124,7 @@ export function CTA() {
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full bg-white border-black text-black placeholder:text-gray-400 focus:border-[#FF6B35]"
+                                className="w-full bg-white border-2 border-[#FF6B35] text-black placeholder:text-gray-400 focus:border-black"
                                 placeholder="your@email.com"
                             />
                         </div>
@@ -190,7 +190,7 @@ export function CTA() {
             </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-12 border-b border-black pb-12">
+        <div className="grid md:grid-cols-4 gap-12 border-b-2 border-[#FF6B35] pb-12">
             <div className="col-span-2">
                 <div className="flex items-center gap-2 mb-6">
                     <img 

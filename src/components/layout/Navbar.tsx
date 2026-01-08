@@ -31,7 +31,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-black"
+          ? "bg-white/80 backdrop-blur-md border-b-2 border-[#FF6B35]"
           : "bg-transparent"
       }`}
     >
@@ -63,7 +63,8 @@ export function Navbar() {
           ))}
           <Button 
             onClick={() => scrollToSection("contact-form")}
-            className="bg-[#FF6B35] hover:bg-[#FF8C42] text-white border-0"
+            className="!bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full px-6 py-2 font-medium"
+            style={{ backgroundColor: '#FF6B35', color: 'white' }}
           >
             Contact Us
           </Button>
@@ -85,7 +86,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-black overflow-hidden"
+            className="md:hidden bg-white border-b-2 border-[#FF6B35] overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {["Solution", "Intelligence", "Process"].map((item) => (
@@ -100,7 +101,8 @@ export function Navbar() {
               <div className="flex flex-col gap-3 mt-4">
                 <Button 
                   onClick={() => scrollToSection("contact-form")}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white border-0"
+                  className="w-full !bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full font-medium"
+                  style={{ backgroundColor: '#FF6B35', color: 'white' }}
                 >
                   Contact Us
                 </Button>

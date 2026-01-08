@@ -15,21 +15,21 @@ export function WhyMatters() {
 
   return (
     <section ref={containerRef} className="py-32 bg-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF6B35]/10 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 mb-20 relative z-10">
-        <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Why Data Matters</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Why Data <span style={{ color: '#FF6B35' }}>Matters</span></h2>
         <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 border border-black bg-white">
+            <div className="p-6 border-l-4 border-[#FF6B35] border-t border-r border-b border-black bg-white">
                 <h3 className="text-4xl font-bold text-black mb-2">1 in 3</h3>
                 <p className="text-black">Australians use meal delivery platforms regularly</p>
             </div>
-            <div className="p-6 border border-black bg-white">
+            <div className="p-6 border-l-4 border-[#FF6B35] border-t border-r border-b border-black bg-white">
                 <h3 className="text-4xl font-bold text-black mb-2">65%</h3>
                 <p className="text-black">Of restaurants rely heavily on generic promotions</p>
             </div>
-            <div className="p-6 border border-black bg-white">
-                <h3 className="text-4xl font-bold text-black mb-2">+20%</h3>
+            <div className="p-6 border-l-4 border-[#FF6B35] border-t border-r border-b border-black bg-white">
+                <h3 className="text-4xl font-bold" style={{ color: '#FF6B35' }}>+20%</h3>
                 <p className="text-black">Revenue uplift achievable with data-led decisions</p>
             </div>
         </div>

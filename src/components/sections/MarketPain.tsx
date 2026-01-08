@@ -13,13 +13,13 @@ const StatsCard = ({ icon: Icon, label, value, subtext, delay }: { icon: any, la
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay }}
-            className="p-6 rounded-2xl bg-white border border-black transition-all group"
+            className="p-6 rounded-2xl bg-white border-2 border-[#FF6B35] transition-all group hover:bg-[#FF6B35]/5"
         >
             <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-[#FF6B35] flex items-center justify-center text-white group-hover:bg-[#FF8C42] transition-colors">
                     <Icon size={24} />
                 </div>
-                <h3 className="text-black text-sm font-medium uppercase tracking-wider">{label}</h3>
+                <h3 className="text-sm font-medium uppercase tracking-wider" style={{ color: '#FF6B35' }}>{label}</h3>
             </div>
             <div className="text-4xl md:text-5xl font-bold text-black mb-2">{value}</div>
             <p className="text-black text-sm">{subtext}</p>
