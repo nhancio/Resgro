@@ -12,7 +12,7 @@ import { CTA } from "./components/sections/CTA";
 
 export default function App() {
   return (
-    <div className="bg-[#050505] min-h-screen text-white font-sans selection:bg-cyan-500/30">
+    <div className="bg-white min-h-screen text-black font-sans selection:bg-orange-500/30" style={{ fontFamily: "'Roboto', sans-serif" }}>
       <Navbar />
       <main>
         <Hero />

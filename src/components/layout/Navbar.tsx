@@ -31,7 +31,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10"
+          ? "bg-white/80 backdrop-blur-md border-b border-black"
           : "bg-transparent"
       }`}
     >
@@ -45,8 +45,8 @@ export function Navbar() {
             alt="RESGRO Logo" 
             className="h-8 w-auto"
           />
-          <span className="text-2xl font-bold tracking-tight text-white">
-            RES<span className="text-cyan-500">GRO</span>
+          <span className="text-2xl font-bold tracking-tight text-black">
+            RES<span className="text-[#FF6B35]">GRO</span>
           </span>
         </button>
 
@@ -56,14 +56,14 @@ export function Navbar() {
             <button
               key={item}
               onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
-              className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+              className="text-sm font-medium text-black hover:text-[#FF6B35] transition-colors"
             >
               {item}
             </button>
           ))}
           <Button 
             onClick={() => scrollToSection("contact-form")}
-            className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-0"
+            className="bg-[#FF6B35] hover:bg-[#FF8C42] text-white border-0"
           >
             Contact Us
           </Button>
@@ -71,7 +71,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-black"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -85,14 +85,14 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#050505] border-b border-white/10 overflow-hidden"
+            className="md:hidden bg-white border-b border-black overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {["Solution", "Intelligence", "Process"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
-                  className="text-lg font-medium text-gray-300 hover:text-cyan-400 text-left"
+                  className="text-lg font-medium text-black hover:text-[#FF6B35] text-left"
                 >
                   {item}
                 </button>
@@ -100,7 +100,7 @@ export function Navbar() {
               <div className="flex flex-col gap-3 mt-4">
                 <Button 
                   onClick={() => scrollToSection("contact-form")}
-                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-0"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white border-0"
                 >
                   Contact Us
                 </Button>
