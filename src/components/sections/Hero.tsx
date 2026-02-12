@@ -17,7 +17,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-[#FF6B35] mb-8 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border-2 border-[#FF6B35] mb-10 backdrop-blur-sm"
         >
           <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
           <span className="text-sm font-medium" style={{ color: '#FF6B35' }}>New: AI-Powered Competitor Analysis</span>
@@ -27,7 +27,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-8 leading-tight"
         >
           Data Science Powered Growth <br />
           <span style={{ color: '#FF6B35' }}>
@@ -39,7 +39,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl text-black max-w-3xl mx-auto mb-10 leading-relaxed"
+          className="text-xl text-black max-w-3xl mx-auto mb-12 leading-relaxed"
         >
           Helping Australian restaurants unlock delivery revenue from UberEats and DoorDash using deep analytics and personalised campaigns.
         </motion.p>
@@ -58,9 +58,9 @@ export function Hero() {
                 element.scrollIntoView({ behavior: "smooth", block: "start" });
               }
             }}
-            className="h-14 px-8 text-lg bg-[#FF6B35] hover:bg-[#FF8C42] text-white rounded-full transition-all hover:scale-105"
+            className="h-14 px-8 text-lg !bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white rounded-full transition-all hover:scale-105 font-medium"
           >
-            Book a Free Growth Audit
+            Start Free Trial
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
@@ -70,7 +70,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mt-20 relative mx-auto max-w-5xl"
+            className="mt-24 relative mx-auto max-w-5xl"
         >
              <div className="relative rounded-t-xl overflow-hidden border-2 border-[#FF6B35] shadow-2xl bg-white backdrop-blur-xl">
                 <div className="h-8 bg-white border-b-2 border-[#FF6B35] flex items-center px-4 gap-2">

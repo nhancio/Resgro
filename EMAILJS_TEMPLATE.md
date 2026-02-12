@@ -133,7 +133,7 @@ Make sure these variables are set in your EmailJS template:
 - `{{from_email}}` - Sender's email address
 - `{{restaurant}}` - Restaurant name (optional)
 - `{{message}}` - Message content
-- `{{to_email}}` - Recipient email (partha@idigitalmind.com.au)
+- `{{to_email}}` - Recipient email (contact@resgro.ai)
 
 ## Configuration Steps
 
@@ -165,7 +165,7 @@ Make sure these variables are set in your EmailJS template:
 
 5. **Test the form:**
    - Fill out the contact form on your website
-   - Check that emails are received at partha@idigitalmind.com.au
+   - Check that emails are received at contact@resgro.ai (or configure your EmailJS service to forward to sales@resgro.ai)
 
 ## Important Notes
 
