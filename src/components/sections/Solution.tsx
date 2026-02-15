@@ -31,7 +31,7 @@ const FeatureCard = ({ title, description, icon: Icon, delay, className = "", co
 
 export function Solution() {
   return (
-    <section id="solution" className="py-14 sm:py-20 md:py-24 bg-white relative scroll-mt-20">
+    <section id="solution" className="py-14 sm:py-20 md:py-24 bg-white relative scroll-mt-24 sm:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-16">
             <motion.span 

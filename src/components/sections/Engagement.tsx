@@ -43,7 +43,7 @@ export function Engagement() {
   ];
 
   return (
-    <section id="process" className="py-14 sm:py-20 md:py-24 bg-white relative overflow-hidden scroll-mt-20">
+    <section id="process" className="py-14 sm:py-20 md:py-24 bg-white relative overflow-hidden scroll-mt-24 sm:scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-14 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4">

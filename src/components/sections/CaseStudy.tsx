@@ -4,7 +4,7 @@ import { BarChart3, FileCheck, TrendingUp } from "lucide-react";
 
 export function CaseStudy() {
   return (
-    <section id="case-study" className="py-14 sm:py-20 md:py-24 bg-gray-50 scroll-mt-20">
+    <section id="case-study" className="py-14 sm:py-20 md:py-24 bg-gray-50 scroll-mt-24 sm:scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div

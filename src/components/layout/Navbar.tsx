@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: "Solution", id: "solution" },
   { label: "Intelligence", id: "intelligence" },
   { label: "Process", id: "process" },
+  { label: "Case Study", id: "case-study" },
 ];
 
 const SOCIAL_LINKS = [
@@ -29,6 +30,21 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open (responsive)
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
@@ -53,11 +69,11 @@ export function Navbar() {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setMobileMenuOpen(false);
   };
 
   const scrollToTop = () => {
@@ -67,12 +83,14 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b-2 border-[#FF6B35]"
-          : "bg-transparent"
+        mobileMenuOpen
+          ? "bg-white border-b-2 border-[#FF6B35]"
+          : isScrolled
+            ? "bg-white/80 backdrop-blur-md border-b-2 border-[#FF6B35]"
+            : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between gap-2 pt-[env(safe-area-inset-top)]">
         <button 
           onClick={scrollToTop}
           className="flex flex-col items-start gap-0.5 cursor-pointer hover:opacity-80 transition-opacity min-w-0"
@@ -88,18 +106,21 @@ export function Navbar() {
             </span>
           </div>
           <span className="text-[10px] sm:text-xs font-medium text-black/80 hidden sm:block max-w-[180px] md:max-w-[220px] truncate">
-            Your Restaurant, Our Data Science & AI = Growth
+            Your Restaurant + AI Strategy = Growth
           </span>
         </button>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        <div className="hidden md:flex items-center gap-2 sm:gap-4 lg:gap-6 xl:gap-8 flex-wrap justify-end">
           {NAV_ITEMS.map(({ label, id }) => (
             <button
               key={id}
+              type="button"
               onClick={() => scrollToSection(id)}
-              className={`text-sm font-medium transition-colors ${
-                activeSection === id ? "text-[#FF6B35]" : "text-black hover:text-[#FF6B35]"
+              className={`text-sm font-medium transition-all whitespace-nowrap px-3 py-2 rounded-full ${
+                activeSection === id
+                  ? "bg-[#FF6B35] text-white hover:bg-[#FF8C42]"
+                  : "text-black hover:text-[#FF6B35] hover:bg-orange-50"
               }`}
             >
               {label}
@@ -120,6 +141,7 @@ export function Navbar() {
             ))}
           </div>
           <Button 
+            type="button"
             onClick={() => scrollToSection("contact-form")}
             className="!bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full px-5 py-2.5 min-h-[44px] font-medium text-sm lg:text-base flex-shrink-0"
             style={{ backgroundColor: '#FF6B35', color: 'white' }}
@@ -147,19 +169,20 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-b-2 border-[#FF6B35] overflow-hidden"
           >
-            <div className="flex flex-col p-4 sm:p-6 gap-1">
+            <div className="flex flex-col p-4 sm:p-6 gap-0">
               {NAV_ITEMS.map(({ label, id }) => (
                 <button
                   key={id}
+                  type="button"
                   onClick={() => scrollToSection(id)}
-                  className={`min-h-[48px] px-3 py-3 text-left text-lg font-medium rounded-lg active:bg-gray-100 touch-manipulation ${
-                    activeSection === id ? "text-[#FF6B35]" : "text-black hover:text-[#FF6B35]"
+                  className={`min-h-[48px] px-4 py-3 text-left text-base sm:text-lg font-medium rounded-xl active:bg-gray-100 touch-manipulation w-full ${
+                    activeSection === id ? "text-white bg-[#FF6B35] hover:bg-[#FF8C42]" : "text-black hover:bg-gray-50"
                   }`}
                 >
                   {label}
                 </button>
               ))}
-              <div className="flex gap-3 flex-wrap py-4">
+              <div className="flex gap-3 flex-wrap py-4 border-t border-gray-100 mt-2">
                 {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
                   <a
                     key={label}
@@ -175,12 +198,24 @@ export function Navbar() {
               </div>
               <div className="flex flex-col gap-3 mt-2">
                 <Button 
+                  type="button"
                   onClick={() => scrollToSection("contact-form")}
                   className="w-full min-h-[48px] !bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full font-medium text-base touch-manipulation"
                   style={{ backgroundColor: '#FF6B35', color: 'white' }}
                 >
                   Contact Us
                 </Button>
+                <a
+                  href="#/privacy-policy"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.hash = "#/privacy-policy";
+                    setMobileMenuOpen(false);
+                  }}
+                  className="min-h-[44px] px-4 py-3 text-center text-sm font-medium text-gray-600 hover:text-[#FF6B35] rounded-xl touch-manipulation"
+                >
+                  Privacy Policy
+                </a>
               </div>
             </div>
           </motion.div>

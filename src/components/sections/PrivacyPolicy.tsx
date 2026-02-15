@@ -7,7 +7,7 @@ export function PrivacyPolicy() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-black mb-3 sm:mb-4">
           Privacy <span className="text-[#FF6B35]">Policy</span>
         </h1>
-        <p className="text-center text-black/50 text-xs sm:text-sm mb-10 sm:mb-16">Last updated: February 2025</p>
+        <p className="text-center text-black/50 text-xs sm:text-sm mb-10 sm:mb-16">Last updated: February 2026</p>
 
         <div className="bg-gray-50 rounded-2xl sm:rounded-3xl border border-gray-200 p-5 sm:p-8 md:p-10 lg:p-14 shadow-sm">
           <div className="space-y-8 sm:space-y-10 text-black/80 text-sm sm:text-base leading-relaxed">

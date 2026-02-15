@@ -85,7 +85,7 @@ export function CTA() {
         </div>
 
         {/* Contact Form */}
-        <div id="contact-form" className="mb-12 sm:mb-16 md:mb-20 max-w-2xl mx-auto scroll-mt-20">
+        <div id="contact-form" className="mb-12 sm:mb-16 md:mb-20 max-w-2xl mx-auto scroll-mt-24 sm:scroll-mt-20">
           <div className="rounded-2xl sm:rounded-3xl bg-white border border-gray-200 p-5 sm:p-8 md:p-10 lg:p-14 shadow-lg">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 sm:mb-4 text-center">Contact <span className="text-[#FF6B35]">Us</span></h3>
             <p className="text-black/70 text-sm sm:text-base text-center mb-6 sm:mb-10">
@@ -205,9 +205,15 @@ export function CTA() {
             <h4 className="text-black font-bold mb-4 sm:mb-6 text-base sm:text-lg">Links</h4>
             <ul className="space-y-3 sm:space-y-4">
               <li>
-                <a href="mailto:sales@resgro.ai" className="text-black/80 hover:text-[#FF6B35] transition-colors inline-block py-2 min-h-[44px] flex flex-col items-center md:items-start justify-center">
+                <a
+                  href="#contact-form"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="text-black/80 hover:text-[#FF6B35] transition-colors inline-block py-2 min-h-[44px] flex flex-col items-center md:items-start justify-center touch-manipulation"
+                >
                   Book a demo
-                  <span className="text-xs sm:text-sm text-black/50 block mt-0.5">Email sales@resgro.ai</span>
                 </a>
               </li>
               <li>

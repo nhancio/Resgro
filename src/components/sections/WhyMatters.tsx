@@ -42,21 +42,37 @@ export function WhyMatters() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 sm:gap-4 opacity-20 select-none mt-6 sm:mt-8 overflow-hidden">
-        <motion.div style={{ x: x1 }} className="whitespace-nowrap">
-            <span className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-transparent stroke-text px-2 sm:px-4">CLICK CLICK CLICK CLICK CLICK CLICK</span>
+      <div className="flex flex-col gap-1 sm:gap-2 md:gap-4 opacity-90 select-none mt-6 sm:mt-8 overflow-hidden max-w-[100vw]">
+        <motion.div style={{ x: x1 }} className="whitespace-nowrap scroll-stroke-black py-1">
+            <span className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black">CLICK CLICK CLICK CLICK CLICK CLICK</span>
         </motion.div>
-        <motion.div style={{ x: x2 }} className="whitespace-nowrap">
-            <span className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-black/10 px-2 sm:px-4">OFFER OFFER OFFER OFFER OFFER OFFER</span>
+        <motion.div style={{ x: x2 }} className="whitespace-nowrap scroll-stroke-orange py-1">
+            <span className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black">OFFER OFFER OFFER OFFER OFFER OFFER</span>
         </motion.div>
-        <motion.div style={{ x: x3 }} className="whitespace-nowrap">
-            <span className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-transparent stroke-text px-2 sm:px-4 text-[#FF6B35]">GROW GROW GROW GROW GROW GROW</span>
+        <motion.div style={{ x: x3 }} className="whitespace-nowrap scroll-stroke-black py-1">
+            <span className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black">GROW GROW GROW GROW GROW GROW</span>
         </motion.div>
       </div>
       
       <style>{`
-        .stroke-text {
-            -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+        .scroll-stroke-black span {
+          color: transparent;
+          -webkit-text-stroke: 2px #000;
+          paint-order: stroke fill;
+        }
+        @media (max-width: 640px) {
+          .scroll-stroke-black span { -webkit-text-stroke-width: 1.5px; }
+        }
+        .scroll-stroke-orange span {
+          color: transparent;
+          -webkit-text-stroke: 2px #FF6B35;
+          paint-order: stroke fill;
+        }
+        @media (max-width: 640px) {
+          .scroll-stroke-orange span { -webkit-text-stroke-width: 1.5px; }
+        }
+        @media (max-width: 380px) {
+          .scroll-stroke-black span, .scroll-stroke-orange span { -webkit-text-stroke-width: 1px; }
         }
       `}</style>
     </section>
