@@ -1,176 +1,75 @@
-# EmailJS Template Configuration
+# EmailJS Template – Contact Form
 
-## Template Setup Instructions
+The website sends these **exact variables** to EmailJS. Your template must use the same names (case-sensitive).
 
-1. Go to https://www.emailjs.com and sign up/login
-2. Create a new Email Service (Gmail, Outlook, etc.)
-3. Create a new Email Template
-4. Use the template content below
+## Variables sent from the form
 
-## Email Template Content
+| Variable       | Description        | Example        |
+|----------------|--------------------|----------------|
+| `{{from_name}}`| Sender's name      | John Smith     |
+| `{{from_email}}` | Sender's email   | john@example.com |
+| `{{mobile}}`   | Mobile number      | +61 400 000 000 |
+| `{{restaurant}}` | Restaurant name  | The Local Kitchen |
+| `{{message}}`  | Message text       | I'd like to know more... |
+| `{{to_email}}` | Recipient (optional) | contact@resgro.ai |
+| `{{reply_to}}` | Reply-to address (optional) | Same as from_email |
 
-**Subject:**
+---
+
+## What to change in EmailJS
+
+1. Go to **https://dashboard.emailjs.com** → **Email Templates** → open your template (e.g. `template_cpdnc38`).
+2. Set the **Subject** to something like:
+   ```
+   Contact Us: {{from_name}}
+   ```
+3. In the **Content** (body), use the variables above. For example:
+
+### Option A – Simple (plain text style)
+
+**Content:**
 ```
-New Contact Form Submission from RESGRO Website
-```
-
-**Email Body (HTML):**
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            background-color: #f97316;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 5px 5px 0 0;
-        }
-        .content {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-top: none;
-        }
-        .field {
-            margin-bottom: 15px;
-        }
-        .label {
-            font-weight: bold;
-            color: #f97316;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .value {
-            color: #333;
-            padding: 8px;
-            background-color: white;
-            border-left: 3px solid #f97316;
-            padding-left: 12px;
-        }
-        .message-box {
-            background-color: white;
-            padding: 15px;
-            border-left: 3px solid #f97316;
-            margin-top: 10px;
-            white-space: pre-wrap;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #666;
-            font-size: 12px;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h2>New Contact Form Submission</h2>
-        <p>RESGRO Website</p>
-    </div>
-    
-    <div class="content">
-        <div class="field">
-            <span class="label">Name:</span>
-            <div class="value">{{from_name}}</div>
-        </div>
-        
-        <div class="field">
-            <span class="label">Email:</span>
-            <div class="value">{{from_email}}</div>
-        </div>
-        
-        <div class="field">
-            <span class="label">Restaurant Name:</span>
-            <div class="value">{{restaurant}}</div>
-        </div>
-        
-        <div class="field">
-            <span class="label">Message:</span>
-            <div class="message-box">{{message}}</div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>This email was sent from the RESGRO contact form.</p>
-        <p>Reply directly to: {{from_email}}</p>
-    </div>
-</body>
-</html>
-```
-
-**Email Body (Plain Text Alternative):**
-```
-New Contact Form Submission from RESGRO Website
+New contact form submission from RESGRO website.
 
 Name: {{from_name}}
 Email: {{from_email}}
-Restaurant Name: {{restaurant}}
+Mobile: {{mobile}}
+Restaurant: {{restaurant}}
 
 Message:
 {{message}}
 
 ---
-This email was sent from the RESGRO contact form.
-Reply directly to: {{from_email}}
+Reply to: {{from_email}}
 ```
 
-## Template Variables
+### Option B – HTML template (paste into HTML tab)
 
-Make sure these variables are set in your EmailJS template:
-- `{{from_name}}` - Sender's name
-- `{{from_email}}` - Sender's email address
-- `{{restaurant}}` - Restaurant name (optional)
-- `{{message}}` - Message content
-- `{{to_email}}` - Recipient email (contact@resgro.ai)
+**Subject:** `Contact Us: {{from_name}}`
 
-## Configuration Steps
+**Content (HTML):**
+```html
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2 style="color: #FF6B35;">New Contact Form – RESGRO</h2>
+  
+  <p><strong>Name:</strong> {{from_name}}</p>
+  <p><strong>Email:</strong> {{from_email}}</p>
+  <p><strong>Mobile:</strong> {{mobile}}</p>
+  <p><strong>Restaurant:</strong> {{restaurant}}</p>
+  
+  <p><strong>Message:</strong></p>
+  <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #FF6B35; white-space: pre-wrap;">{{message}}</div>
+  
+  <p style="margin-top: 20px; color: #666; font-size: 12px;">Reply to: {{from_email}}</p>
+</div>
+```
 
-1. **Create Email Service:**
-   - Go to Email Services in EmailJS dashboard
-   - Add a new service (Gmail recommended)
-   - Connect your email account
-   - Copy the Service ID
+---
 
-2. **Create Email Template:**
-   - Go to Email Templates
-   - Create a new template
-   - Paste the HTML content above
-   - Set the subject line
-   - Copy the Template ID
+## Checklist
 
-3. **Get Public Key:**
-   - Go to Account > API Keys
-   - Copy your Public Key
+- [ ] Template uses **exactly**: `{{from_name}}`, `{{from_email}}`, `{{mobile}}`, `{{restaurant}}`, `{{message}}` (double curly braces, no spaces inside).
+- [ ] No typo in variable names (e.g. `from_name` not `fromName` or `name`).
+- [ ] Save the template in EmailJS after editing.
 
-4. **Update .env file:**
-   - Open `.env` file in the project root
-   - Replace the placeholder values with your actual IDs and keys:
-     ```
-     VITE_EMAILJS_SERVICE_ID=service_xxxxxxxxx
-     VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxxxx
-     VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxxxxxxx
-     ```
-
-5. **Test the form:**
-   - Fill out the contact form on your website
-   - Check that emails are received at contact@resgro.ai (or configure your EmailJS service to forward to sales@resgro.ai)
-
-## Important Notes
-
-- The `.env` file is already in `.gitignore` so your keys won't be committed
-- Use `.env.example` as a template for other developers
-- Never commit your actual EmailJS keys to version control
-- The email will be sent from your connected email service account
-
+After you update the template, submit the form again; the email should show Name, Email, Mobile, Restaurant, and Message.

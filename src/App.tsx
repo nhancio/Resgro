@@ -33,21 +33,21 @@ export default function App() {
     return (
       <div className="bg-white min-h-screen text-black font-sans selection:bg-orange-500/30" style={{ fontFamily: "'Roboto', sans-serif" }}>
         <nav className="bg-white border-b-2 border-[#FF6B35] sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 md:h-20 flex items-center justify-between gap-2">
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.location.hash = ""; }}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              className="flex items-center gap-1.5 sm:gap-2 hover:opacity-80 transition-opacity min-w-0"
             >
-              <img src="/logo.png" alt="RESGRO Logo" className="h-8 w-auto" />
-              <span className="text-2xl font-bold tracking-tight text-black">
+              <img src="/logo.png" alt="RESGRO Logo" className="h-6 sm:h-8 w-auto" />
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-black">
                 RES<span className="text-[#FF6B35]">GRO</span>
               </span>
             </a>
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.location.hash = ""; }}
-              className="text-sm font-medium text-[#FF6B35] hover:text-black transition-colors"
+              className="text-sm font-medium text-[#FF6B35] hover:text-black transition-colors whitespace-nowrap py-2 px-3 min-h-[44px] flex items-center touch-manipulation"
             >
               &larr; Back to Home
             </a>
@@ -63,9 +63,9 @@ export default function App() {
   }
 
   return (
-    <div className="bg-white min-h-screen text-black font-sans selection:bg-orange-500/30" style={{ fontFamily: "'Roboto', sans-serif" }}>
+    <div className="bg-white min-h-screen text-black font-sans selection:bg-orange-500/30 overflow-x-hidden" style={{ fontFamily: "'Roboto', sans-serif" }}>
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <Hero />
         <MarketPain />
         <WhyMatters />

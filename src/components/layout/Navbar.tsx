@@ -72,28 +72,28 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between gap-2">
         <button 
           onClick={scrollToTop}
-          className="flex flex-col items-start gap-0.5 cursor-pointer hover:opacity-80 transition-opacity"
+          className="flex flex-col items-start gap-0.5 cursor-pointer hover:opacity-80 transition-opacity min-w-0"
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <img 
               src="/logo.png" 
               alt="RESGRO Logo" 
-              className="h-8 w-auto"
+              className="h-6 sm:h-8 w-auto"
             />
-            <span className="text-2xl font-bold tracking-tight text-black">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-black">
               RES<span className="text-[#FF6B35]">GRO</span>
             </span>
           </div>
-          <span className="text-xs font-medium text-black/80 hidden sm:block" style={{ maxWidth: "220px" }}>
+          <span className="text-[10px] sm:text-xs font-medium text-black/80 hidden sm:block max-w-[180px] md:max-w-[220px] truncate">
             Your Restaurant, Our Data Science & AI = Growth
           </span>
         </button>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {NAV_ITEMS.map(({ label, id }) => (
             <button
               key={id}
@@ -105,14 +105,14 @@ export function Navbar() {
               {label}
             </button>
           ))}
-          <div className="flex items-center gap-2 border-l border-gray-200 pl-6">
+          <div className="flex items-center gap-1.5 border-l border-gray-200 pl-4 lg:pl-6">
             {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#FF6B35] hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#FF6B35] hover:text-white transition-colors flex-shrink-0"
                 aria-label={label}
               >
                 <Icon size={18} />
@@ -121,19 +121,20 @@ export function Navbar() {
           </div>
           <Button 
             onClick={() => scrollToSection("contact-form")}
-            className="!bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full px-6 py-2 font-medium"
+            className="!bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full px-5 py-2.5 min-h-[44px] font-medium text-sm lg:text-base flex-shrink-0"
             style={{ backgroundColor: '#FF6B35', color: 'white' }}
           >
             Contact Us
           </Button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle - min 44px tap target */}
         <button
-          className="md:hidden text-black"
+          className="md:hidden text-black w-11 h-11 flex items-center justify-center -mr-1 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X /> : <Menu />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -146,36 +147,36 @@ export function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-b-2 border-[#FF6B35] overflow-hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
+            <div className="flex flex-col p-4 sm:p-6 gap-1">
               {NAV_ITEMS.map(({ label, id }) => (
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`text-lg font-medium text-left ${
+                  className={`min-h-[48px] px-3 py-3 text-left text-lg font-medium rounded-lg active:bg-gray-100 touch-manipulation ${
                     activeSection === id ? "text-[#FF6B35]" : "text-black hover:text-[#FF6B35]"
                   }`}
                 >
                   {label}
                 </button>
               ))}
-              <div className="flex gap-3 flex-wrap">
+              <div className="flex gap-3 flex-wrap py-4">
                 {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
                   <a
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-black hover:bg-[#FF6B35] hover:text-white transition-colors"
+                    className="w-11 h-11 rounded-full bg-gray-100 flex items-center justify-center text-black hover:bg-[#FF6B35] hover:text-white transition-colors touch-manipulation"
                     aria-label={label}
                   >
                     <Icon size={20} />
                   </a>
                 ))}
               </div>
-              <div className="flex flex-col gap-3 mt-4">
+              <div className="flex flex-col gap-3 mt-2">
                 <Button 
                   onClick={() => scrollToSection("contact-form")}
-                  className="w-full !bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full font-medium"
+                  className="w-full min-h-[48px] !bg-[#FF6B35] hover:!bg-[#FF8C42] !text-white border-0 rounded-full font-medium text-base touch-manipulation"
                   style={{ backgroundColor: '#FF6B35', color: 'white' }}
                 >
                   Contact Us

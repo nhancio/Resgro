@@ -31,73 +31,97 @@ const comparisonData = [
 
 export function Comparison() {
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-14 sm:py-20 md:py-24 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4">
             Why <span className="text-[#FF6B35]">RESGRO</span> Wins
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             See how we compare to traditional agencies across every metric that matters.
           </p>
         </motion.div>
 
-        {/* Table-style comparison */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-          {/* Table Header */}
-          <div className="grid grid-cols-3 border-b border-gray-200 bg-gray-50">
-            <div className="px-6 py-5 md:px-8">
-              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Feature</span>
+        {/* Mobile: stacked cards. Tablet/Desktop: table */}
+        <div className="space-y-4 md:space-y-0">
+          {/* Desktop table header */}
+          <div className="hidden md:grid grid-cols-3 border-b border-gray-200 bg-gray-50 rounded-t-2xl overflow-hidden">
+            <div className="px-4 py-4 lg:px-6 lg:py-5">
+              <span className="text-xs lg:text-sm font-bold text-gray-500 uppercase tracking-wider">Feature</span>
             </div>
-            <div className="px-6 py-5 md:px-8 text-center border-l border-gray-200">
-              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Traditional Agencies</span>
+            <div className="px-4 py-4 lg:px-6 lg:py-5 text-center border-l border-gray-200">
+              <span className="text-xs lg:text-sm font-bold text-gray-500 uppercase tracking-wider">Traditional Agencies</span>
             </div>
-            <div className="px-6 py-5 md:px-8 text-center border-l border-gray-200 bg-orange-50">
-              <span className="text-sm font-bold text-[#FF6B35] uppercase tracking-wider">ResGro</span>
+            <div className="px-4 py-4 lg:px-6 lg:py-5 text-center border-l border-gray-200 bg-orange-50">
+              <span className="text-xs lg:text-sm font-bold text-[#FF6B35] uppercase tracking-wider">ResGro</span>
             </div>
           </div>
 
-          {/* Table Rows */}
-          {comparisonData.map((row, index) => {
-            const Icon = row.icon;
-            const isLast = index === comparisonData.length - 1;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`grid grid-cols-3 ${!isLast ? "border-b border-gray-100" : ""} hover:bg-gray-50/50 transition-colors`}
-              >
-                {/* Feature Label */}
-                <div className="px-6 py-6 md:px-8 flex items-center gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#FF6B35] flex items-center justify-center text-white flex-shrink-0">
-                    <Icon size={20} />
+          <div className="bg-white md:rounded-b-2xl md:rounded-t-none rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
+            {comparisonData.map((row, index) => {
+              const Icon = row.icon;
+              const isLast = index === comparisonData.length - 1;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className={`${!isLast ? "border-b border-gray-100" : ""} hover:bg-gray-50/50 transition-colors`}
+                >
+                  {/* Mobile: single card per row */}
+                  <div className="md:hidden p-4 sm:p-5 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#FF6B35] flex items-center justify-center text-white flex-shrink-0">
+                        <Icon size={20} />
+                      </div>
+                      <span className="text-base font-bold text-black">{row.label}</span>
+                    </div>
+                    <div className="flex items-start gap-3 pl-1">
+                      <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-xs font-semibold text-gray-500 uppercase block mb-0.5">Traditional</span>
+                        <span className="text-sm text-gray-600">{row.agency}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 pl-1 p-3 rounded-xl bg-orange-50/80 border border-orange-100">
+                      <CheckCircle2 className="w-5 h-5 text-[#FF6B35] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-xs font-semibold text-[#FF6B35] uppercase block mb-0.5">ResGro</span>
+                        <span className="text-sm font-semibold text-black">{row.resgro}</span>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-base md:text-lg font-bold text-black">{row.label}</span>
-                </div>
 
-                {/* Traditional Agency */}
-                <div className="px-6 py-6 md:px-8 flex items-center justify-center gap-3 border-l border-gray-100">
-                  <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                  <span className="text-sm md:text-base text-gray-600">{row.agency}</span>
-                </div>
-
-                {/* ResGro */}
-                <div className="px-6 py-6 md:px-8 flex items-center justify-center gap-3 border-l border-gray-100 bg-orange-50/50">
-                  <CheckCircle2 className="w-5 h-5 text-[#FF6B35] flex-shrink-0" />
-                  <span className="text-sm md:text-base font-semibold text-black">{row.resgro}</span>
-                </div>
-              </motion.div>
-            );
-          })}
+                  {/* Desktop: table row */}
+                  <div className="hidden md:grid grid-cols-3">
+                    <div className="px-4 py-4 lg:px-6 lg:py-6 flex items-center gap-3">
+                      <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-[#FF6B35] flex items-center justify-center text-white flex-shrink-0">
+                        <Icon size={20} />
+                      </div>
+                      <span className="text-sm lg:text-base font-bold text-black">{row.label}</span>
+                    </div>
+                    <div className="px-4 py-4 lg:px-6 lg:py-6 flex items-center justify-center gap-2 border-l border-gray-100">
+                      <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
+                      <span className="text-sm lg:text-base text-gray-600">{row.agency}</span>
+                    </div>
+                    <div className="px-4 py-4 lg:px-6 lg:py-6 flex items-center justify-center gap-2 border-l border-gray-100 bg-orange-50/50">
+                      <CheckCircle2 className="w-5 h-5 text-[#FF6B35] flex-shrink-0" />
+                      <span className="text-sm lg:text-base font-semibold text-black">{row.resgro}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
